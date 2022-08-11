@@ -12,9 +12,9 @@ namespace BookStore.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public int Userid { get; set; }
-        [ForeignKey("Userid")]
-        public int UserId { get; set; }
+        public int UsersId { get; set; }
+        [ForeignKey("UsersId")]
+        public virtual User User { get; set; }
         public decimal Total { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }

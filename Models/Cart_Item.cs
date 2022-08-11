@@ -15,11 +15,12 @@ namespace BookStore.Models
         public int Sessionid { get; set; }
         [ForeignKey ("Sessionid")]
         public virtual Shoping_Session Shoping_SessionId { get; set; }
+       
         [Required]
-        public int Bookid { get; set; }
-
-        [ForeignKey ("Bookid")]
-        public virtual int BookId { get; set; }
+        public int BooksId { get; set; }
+        [ForeignKey ("BooksId")]
+        public virtual Book Books { get; set; }
+       
         public DateTime Created { get; set; }
         public DateTime LastUpdated { get; set; }
     }

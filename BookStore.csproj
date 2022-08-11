@@ -241,9 +241,9 @@
     <Compile Include="Migrations\202208101211292_initClasses2.designer.cs">
       <DependentUpon>202208101211292_initClasses2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208110819464_DatabaseUlter.cs" />
-    <Compile Include="Migrations\202208110819464_DatabaseUlter.designer.cs">
-      <DependentUpon>202208110819464_DatabaseUlter.cs</DependentUpon>
+    <Compile Include="Migrations\202208110844375_newTablesv2.cs" />
+    <Compile Include="Migrations\202208110844375_newTablesv2.designer.cs">
+      <DependentUpon>202208110844375_newTablesv2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
@@ -300,8 +300,8 @@
     <EmbeddedResource Include="Migrations\202208101211292_initClasses2.resx">
       <DependentUpon>202208101211292_initClasses2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208110819464_DatabaseUlter.resx">
-      <DependentUpon>202208110819464_DatabaseUlter.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208110844375_newTablesv2.resx">
+      <DependentUpon>202208110844375_newTablesv2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
