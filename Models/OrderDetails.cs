@@ -12,12 +12,12 @@ namespace BookStore.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public int Bookid { get; set; }
-        [ForeignKey ("Bookid")]
+        public int Booksid { get; set; }
+        [ForeignKey ("Booksid")]
         public virtual Book BookId { get; set; }
         [Required]
-        public int Userid { get; set; }
-        [ForeignKey("Userid")]
+        public int Usersid { get; set; }
+        [ForeignKey("Usersid")]
         public virtual User UserId { get; set; }
         public int Total { get; set; }
         public DateTime Created { get; set; }
