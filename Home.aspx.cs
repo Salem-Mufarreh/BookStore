@@ -16,6 +16,8 @@ namespace BookStore
         {
             ApplicationDBContext db = new ApplicationDBContext();
             List<Book> books=  db.Books.ToList();
+           
+
             repeater1.DataSource = books.Take(10);
             repeater1.DataBind();
             
