@@ -15,6 +15,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/toastr.css" rel="stylesheet" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
@@ -37,6 +38,7 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Scripts/toastr.js" />
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
@@ -47,14 +49,38 @@
       <a class="navbar-brand" href="Home.aspx">Book Store</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="Home">Home</a></li>
-      
-      <li><a href="#">Cart</a></li>
+        <li class="active"><a href="Home">Home</a></li>
+        <li><a href="#">Cart</a></li>
         <li><a href="#">Profile</a></li>
+        <%if (Session["LoggedInUser"] != null) { 
+                BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+                if(user.Role == BookStore.Models.SD.Admin)
+                {
+                    %>
+                    <li><a href="AddBooks">Add Books</a></li>
+                  
+                <%}
+            } %>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% if(Session["LoggedInUser"] != null)
+            {
+                BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+                %>
+                <li><a href="#" ><span class="glyphicon glyphicon-user" onclick=""></span><% Response.Write(user.UserName); %></a></li>
+                <li>
+                    <asp:LinkButton Text="Logout" runat="server" ID="logoutbtn" OnClick="logoutbtn_Click" /></li>
+        <%      
+            }
+            else
+            {
+                %>
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <%
+            }
+           %>
+      
     </ul>
   </div>
 </nav>
@@ -64,10 +90,12 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - BookStore</p>
             </footer>
         </div>
 
     </form>
 </body>
+    
 </html>
+

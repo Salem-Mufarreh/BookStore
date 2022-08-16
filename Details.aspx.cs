@@ -15,6 +15,10 @@ namespace BookStore
         protected readonly ApplicationDBContext _dbContext = new ApplicationDBContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["LoggedInUser"] == null)
+            {
+                Response.Redirect(nameof(Home));
+            }
             
             int value = int.Parse( Request.Params["id"]);
             List<Book> book =_dbContext.Books.Where(x => x.Id == value).ToList();

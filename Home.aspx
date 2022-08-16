@@ -1,21 +1,21 @@
 ﻿
-<%@ Page Language="C#"MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Home.aspx.cs" Inherits="BookStore.Home" %>
+<%@ Page Title="Home" Language="C#"MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Home.aspx.cs" Inherits="BookStore.Home" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <!DOCTYPE html>
 
-<html>
-<head>
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+
+    <asp:Button Text="text" runat="server" OnClick="Unnamed_Click"/>
+    <asp:Label ID="label12" runat="server" />
     
     <div class="gridHome">
-
+        <%if(Session["Message"] !=null)
+            {
+                BookStore.Models.ToastrNotifications notifications = (BookStore.Models.ToastrNotifications)Session["Message"];
+                Response.Write("<script>toastr."+notifications.Type+"('" + notifications.Message + "');</script>");
+                notifications = null;
+                Session["Message"] =notifications ;
+            } %>
             <asp:Repeater runat="server" ID="repeater1">
                 <ItemTemplate>
                         <div class="card cardGridHome ">
@@ -51,7 +51,4 @@
         </script>
     </div>
  
-
-</body>
-</html>
     </asp:Content>
