@@ -58,6 +58,8 @@
                 {
                     %>
                     <li><a href="AddBooks">Add Books</a></li>
+                    <li><a href="Users">Users</a></li>
+
                   
                 <%}
             } %>

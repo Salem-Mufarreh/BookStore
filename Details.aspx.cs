@@ -17,6 +17,9 @@ namespace BookStore
         {
             if(Session["LoggedInUser"] == null)
             {
+                ToastrNotifications toastr = new ToastrNotifications("Please Login First", "error");
+                Session["Message"]= toastr;
+
                 Response.Redirect(nameof(Home));
             }
             

@@ -2,6 +2,12 @@
 
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <% BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+        if(user == null || user.Role != BookStore.Models.SD.Admin )
+        {
+            Response.Redirect(nameof(BookStore.Home));
+        }
+        %>
     <!DOCTYPE html>
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">

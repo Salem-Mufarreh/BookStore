@@ -3,6 +3,12 @@
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/toastr.css" rel="stylesheet" />
     <br />
+     <% BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+        if(user == null || user.Role != BookStore.Models.SD.Admin )
+        {
+            Response.Redirect(nameof(BookStore.Home));
+        }
+        %>
     <%if(Session["Message"] != null)
         {
             BookStore.Models.ToastrNotifications notifications = (BookStore.Models.ToastrNotifications)Session["Message"];
