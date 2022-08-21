@@ -20,7 +20,7 @@
                 <ItemTemplate>
                         <div class="card cardGridHome ">
                             <input type="hidden" value=<%#DataBinder.Eval(Container,"DataItem.Id") %> />
-                            <img class="card-img-top" src="Uploaded/test.jpeg" style="width:20rem;height:17rem;align-self:center" alt="Card image cap" />
+                            <img class="card-img-top" src="Uploaded/<%#DataBinder.Eval(Container,"DataItem.Title") %>-<%#DataBinder.Eval(Container,"DataItem.Author") %>.jpeg" style="width:20rem;height:17rem;align-self:center" alt="Card image cap" onerror="imgError(this);" />
                             <div class="card-body">
                                 <h5 class="card-title"> <%#DataBinder.Eval(Container,"DataItem.Title") %> </h5>
                                 <h6 class="card-subtitle mb-2 text-muted"><%#DataBinder.Eval(Container,"DataItem.Author") %></h6>
@@ -29,7 +29,13 @@
                                 <p>In Stock: <%#DataBinder.Eval(Container,"DataItem.Quantity") %></p>
                                 <a href="Details.aspx?id=<%#DataBinder.Eval(Container,"DataItem.Id") %> " class="btn btn-secondary" style="width:100%">Details</a>
                                 
-                                
+                                <script>
+                                    function imgError(image) {
+                                        image.onerror = "";
+                                        image.src = "/Uploaded/error-image.png";
+                                        return true;
+                                    }
+                                </script>
                                 
                                 
                                 
