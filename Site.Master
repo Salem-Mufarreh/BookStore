@@ -6,14 +6,18 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - BookStore</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/toastr.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
 </head>
 <body>
@@ -34,38 +38,66 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Scripts/toastr.js" />
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <nav class="navbar-inverse">
+  <div class="container-fluid" style="justify-content:flex-start">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="Home.aspx">Book Store</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="Home">Home</a></li>
+        <li><a href="#">Cart</a></li>
+        <li><a href="#">Profile</a></li>
+        <%if (Session["LoggedInUser"] != null) { 
+                BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+                if(user.Role == BookStore.Models.SD.Admin)
+                {
+                    %>
+                    <li><a href="AddBooks">Add Books</a></li>
+                    <li><a href="Users">Users</a></li>
+
+                  
+                <%}
+            } %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <% if(Session["LoggedInUser"] != null)
+            {
+                BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+                %>
+                <li><a href="#" ><span class="glyphicon glyphicon-user" onclick=""></span><% Response.Write(user.UserName); %></a></li>
+                <li>
+                    <asp:LinkButton Text="Logout" runat="server" ID="logoutbtn" OnClick="logoutbtn_Click" /></li>
+        <%      
+            }
+            else
+            {
+                %>
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <%
+            }
+           %>
+      
+    </ul>
+  </div>
+</nav>
+  
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - BookStore</p>
             </footer>
         </div>
 
     </form>
 </body>
+    
 </html>
+

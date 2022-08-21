@@ -7,6 +7,5 @@ namespace BookStore.Models
 {
     public class SD
     {
-        public const string Customer = "Customer";
     }
 }

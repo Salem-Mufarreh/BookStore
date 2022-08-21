@@ -17,6 +17,7 @@ namespace BookStore.Models
         public string PhoneNumber { get; set; }
         public string Role { get; set; }
         public string password { get; set; }
+        public string Active { get; set; }
 
     }
 }
