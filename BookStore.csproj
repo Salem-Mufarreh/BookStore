@@ -291,6 +291,10 @@
     <Compile Include="Migrations\202208161229274_addUsers.designer.cs">
       <DependentUpon>202208161229274_addUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208211220177_test1.cs" />
+    <Compile Include="Migrations\202208211220177_test1.designer.cs">
+      <DependentUpon>202208211220177_test1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -369,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208161229274_addUsers.resx">
       <DependentUpon>202208161229274_addUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208211220177_test1.resx">
+      <DependentUpon>202208211220177_test1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
