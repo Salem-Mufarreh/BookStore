@@ -10,6 +10,8 @@ namespace BookStore.Models
         public const string available = "Available";
         public const string notAvailable = "Not Available";
         public const string Admin ="admin";
+        public const string Locked = "Locked";
+        public const string UnLocked = "UnLocked";
 
     }
 }
