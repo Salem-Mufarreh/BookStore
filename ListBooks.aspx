@@ -5,8 +5,9 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script>
         $(function () {
-            $("#ctl00_MainContent_BookGrid").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+            $("#ctl00_MainContent_BookGrid").prepend($("<thead></thead><br/>").append($(this).find("tr:first"))).DataTable();
         });
+        
     </script>
     <br />
     <asp:GridView ID="BookGrid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
@@ -19,6 +20,15 @@
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <div style="display:flex; flex-direction:row; ali">
+                    <asp:Button runat="server" ID="Delete" CssClass="btn btn-danger" Text="Delete" OnClick="Delete_Click" />
+                        &nbsp
+                    <asp:Button runat="server" ID="Edit" CssClass="btn btn-warning" Text="Edit" />
+                        </div>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

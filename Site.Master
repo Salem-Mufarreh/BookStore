@@ -93,7 +93,7 @@
                         else
                         {
                     %>
-                    <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
                     <%
                         }

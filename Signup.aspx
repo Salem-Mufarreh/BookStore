@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card border-0 shadow rounded-3 my-5">
-          <div class="card-body p-4 p-sm-5">
+          <div class="card-body p-4 p-sm-5" style="align-self: center;width: 24rem;">
             <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
                     <div class="form-floating mb-3">
                     <asp:TextBox ID="name_txt" Cssclass="form-control" runat="server" ></asp:TextBox>
@@ -32,7 +32,7 @@
                      <div class="d-grid">
                         <asp:Button ID="signup_btn" runat="server" OnClick="signup_Click" Text="SignUp" class="btn btn-primary btn-login text-uppercase fw-bold" />
                     </div>
-=               </div>
+               </div>
         </div>
       </div>
     </div>
