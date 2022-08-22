@@ -6,8 +6,11 @@
 <head runat="server">
     <title></title>
     <link href="../Content/loginCss.css" rel="stylesheet" />
+    <link href="../Content/toastr.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.4.1.js"></script>
+    <script src="../Scripts/toastr.js" ></script>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"/>
 </head>
 <body>
    <div class="container">
@@ -23,7 +26,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                    <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
                     <label for="floatingPassword">Password</label>
                     </div>
 
@@ -33,7 +36,15 @@
                     </div>
                   
                     <div class="d-grid">
-                    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" class="btn btn-primary btn-login text-uppercase fw-bold"/>
+                         <%if(Session["Message"] !=null)
+                            {
+                                BookStore.Models.ToastrNotifications notifications = (BookStore.Models.ToastrNotifications)Session["Message"];
+                                Response.Write("<script>toastr."+notifications.Type+"('" + notifications.Message + "');</script>");
+                                notifications = null;
+                                Session["Message"] =notifications ;
+                            } %>
+                        
+                    <asp:Button ID="Button1" runat="server" Text="Sign In" OnClick="Button1_Click" class="btn btn-primary btn-login text-uppercase fw-bold"/>
                     </div>
                     
                 </form>

@@ -151,7 +151,10 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\loginCss.css" />
+    <Content Include="Content\LoginStyleSheet.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\toastr.css" />
     <Content Include="Default.aspx" />
     <Content Include="Details.aspx" />
     <Content Include="favicon.ico" />
@@ -165,6 +168,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="UserProfile.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Home.aspx" />
     <Content Include="ListBooks.aspx" />
@@ -204,7 +208,6 @@
     <Content Include="Users.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\LogIn.aspx" />
-    <Content Include="Views\LoginPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -351,12 +354,12 @@
     <Compile Include="Views\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginPage.aspx.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\LoginPage.aspx.designer.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
