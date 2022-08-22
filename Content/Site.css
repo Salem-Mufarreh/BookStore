@@ -29,3 +29,32 @@ textarea {
         padding: 0;
     }
 }
+
+
+
+.navbar-nav > li > a {
+    padding-left:15px;
+    padding-right:15px;
+}
+.navbar-right{
+    flex-direction:row;
+}
+.gridHome {
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 2em;
+    column-gap: 2em;
+}
+
+.cardGridHome {
+    width: 25rem;
+    height: 35rem;
+}
+
+
+
+

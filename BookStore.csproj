@@ -151,7 +151,11 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\loginCss.css" />
+    <Content Include="Content\LoginStyleSheet.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Details.aspx" />
     <Content Include="favicon.ico" />
@@ -200,15 +204,19 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Signup.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="Uploaded\error-image.png" />
+    <Content Include="Uploaded\Investor Markets Consultant-Jedidiah Prohaska.jpeg" />
+    <Content Include="Uploaded\jkaghdjk-hdjkas.jpeg" />
     <Content Include="Uploaded\test.jpeg" />
+    <Content Include="Uploaded\test1-test2.jpeg" />
     <Content Include="Users.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\LogIn.aspx" />
-    <Content Include="Views\LoginPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Views\web.config" />
+    <Content Include="Uploadded\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddBooks.aspx.cs">
@@ -350,13 +358,6 @@
     </Compile>
     <Compile Include="Views\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginPage.aspx.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\LoginPage.aspx.designer.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

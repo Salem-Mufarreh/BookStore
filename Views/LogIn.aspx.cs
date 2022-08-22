@@ -39,6 +39,7 @@ namespace BookStore.Views
                     select p;
             if (q.Any())
             {
+
                 return true;
             }
             else
