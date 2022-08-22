@@ -3,8 +3,6 @@ using BookStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
@@ -15,26 +13,26 @@ namespace BookStore
         protected readonly ApplicationDBContext _dbContext = new ApplicationDBContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["LoggedInUser"] == null)
+            if (Session["LoggedInUser"] == null)
             {
                 ToastrNotifications toastr = new ToastrNotifications("Please Login First", "error");
-                Session["Message"]= toastr;
+                Session["Message"] = toastr;
 
                 Response.Redirect(nameof(Home));
             }
-            
-            int value = int.Parse( Request.Params["id"]);
-            List<Book> book =_dbContext.Books.Where(x => x.Id == value).ToList();
+
+            int value = int.Parse(Request.Params["id"]);
+            List<Book> book = _dbContext.Books.Where(x => x.Id == value).ToList();
             txtAuthor.Text = book[0].Author;
             txtDescription.Text = book[0].Description;
             txtISBN.Text = book[0].Id.ToString();
             txtName.Text = book[0].Title;
-            txtPrice.Text = book[0].Price.ToString()+"$";
+            txtPrice.Text = book[0].Price.ToString() + "$";
             if (book[0].Status.Equals(SD.notAvailable))
             {
-                btnCart.Visible= false;
+                btnCart.Visible = false;
             }
-            
+
 
 
         }

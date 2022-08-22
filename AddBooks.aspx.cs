@@ -1,12 +1,7 @@
 ﻿using BookStore.App_Start;
 using BookStore.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace BookStore
 {
@@ -46,7 +41,7 @@ namespace BookStore
                 string strFolder = Path.Combine(Server.MapPath("./"), "Uploaded\\");
                 string FileName = Upload.PostedFile.FileName;
                 FileName = Path.GetFileName(FileName);
-                string FilePath = strFolder + txtTitle.Text +"-"+ txtAuthor2.Text + ".jpeg";
+                string FilePath = strFolder + txtTitle.Text + "-" + txtAuthor2.Text + ".jpeg";
                 Upload.PostedFile.SaveAs(FilePath);
                 db.Books.Add(book);
                 db.SaveChanges();
