@@ -57,6 +57,7 @@ namespace BookStore.Views
 
             if (q.Any())
             {
+<<<<<<< HEAD
                 if(ts[0].Active == SD.UnLocked)
                 {
                     LoggedInUser user = new LoggedInUser();
@@ -78,6 +79,10 @@ namespace BookStore.Views
                    
                 }
                     
+=======
+
+                return true;
+>>>>>>> 556eebeeb4c496c578f525e43c7ffc1d4d99705b
             }
             else
             {

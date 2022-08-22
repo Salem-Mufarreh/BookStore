@@ -13,14 +13,20 @@
 
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/toastr.css" rel="stylesheet" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- CSS only -->
+<<<<<<< HEAD
     <link href="Content/toastr.css"  rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
+=======
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <link href="Content/toastr.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+>>>>>>> 556eebeeb4c496c578f525e43c7ffc1d4d99705b
 
 </head>
 <body>
@@ -46,20 +52,26 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar-inverse">
-  <div class="container-fluid" style="justify-content:flex-start">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="Home.aspx">Book Store</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="Home">Home</a></li>
-        <li><a href="#">Cart</a></li>
-        <li><a href="#">Profile</a></li>
-        <%if (Session["LoggedInUser"] != null) { 
-                BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
-                if(user.Role == BookStore.Models.SD.Admin)
-                {
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="Home">Book Store</a>
+
+                <ul class="navbar-nav" style="flex-direction: row; position: absolute; left: 15rem">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cart</a>
+                    </li>
+
+
+                    <%if (Session["LoggedInUser"] != null)
+                        {
+                            BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+                            if (user.Role == BookStore.Models.SD.Admin)
+                            {
                     %>
+<<<<<<< HEAD
                     <li><a href="AddBooks">Add Books</a></li>
                     <li><a href="Users">Users</a></li>
 
@@ -90,6 +102,45 @@
   </div>
 </nav>
   
+=======
+                                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="Users">Users</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Books</a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" style="position: absolute">
+                                        <li><a class="dropdown-item" href="ListBooks">Manage Books</a></li>
+                                        <li><a class="dropdown-item" href="AddBooks">Insert Book</a></li>
+                                    </ul>
+                                </li>
+
+
+                    <%}
+                        } %>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right" style="flex-direction: row">
+                    <% if (Session["LoggedInUser"] != null)
+                        {
+                            BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+                    %>
+                    <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-user" onclick=""></span><% Response.Write(user.UserName); %></a></li>
+                    <li class="nav-item">
+                        <asp:LinkButton Text="Logout" runat="server" ID="logoutbtn" OnClick="logoutbtn_Click" CssClass="nav-link" /></li>
+                    <%      
+                        }
+                        else
+                        {
+                    %>
+                    <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    <%
+                        }
+                    %>
+                </ul>
+            </div>
+        </nav>
+
+>>>>>>> 556eebeeb4c496c578f525e43c7ffc1d4d99705b
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -101,6 +152,6 @@
 
     </form>
 </body>
-    
+
 </html>
 
