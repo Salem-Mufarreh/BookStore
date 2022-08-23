@@ -36,6 +36,7 @@ namespace BookStore
                 user.PhoneNumber = phoneNumber_txt.Text;
                 user.password = password_txt.Text;
                 user.Role = SD.Customer;
+                user.Active = SD.UnLocked;
 
                 try
                 {
@@ -51,7 +52,7 @@ namespace BookStore
                 address_txt.Text = String.Empty;
                 phoneNumber_txt.Text = String.Empty;
                 password_txt.Text = String.Empty;
-                Response.Write("<script>alert('Signup Succesfully !')</script>");
+                Response.Redirect("Views/Login");
             }
 
             else
@@ -85,6 +86,7 @@ namespace BookStore
             {
                 return false;
             }
+            
 
         }
 

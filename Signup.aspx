@@ -26,7 +26,7 @@
                     </div>
 
                    <div class="form-floating mb-3">
-                        <asp:TextBox ID="password_txt" Cssclass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="password_txt" Cssclass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                         <label for="floatingInput">Password</label>
                     </div>
                      <div class="d-grid">
