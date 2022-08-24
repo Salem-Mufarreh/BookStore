@@ -89,8 +89,8 @@
             else
             {
                 %>
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><a href="Signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="Views/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <%
             }
            %>

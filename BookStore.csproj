@@ -155,10 +155,8 @@
     <Content Include="Content\LoginStyleSheet.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\toastr.css" />
-<<<<<<< HEAD
-=======
+
     <Content Include="Content\toastr.min.css" />
->>>>>>> 556eebeeb4c496c578f525e43c7ffc1d4d99705b
     <Content Include="Default.aspx" />
     <Content Include="Details.aspx" />
     <Content Include="favicon.ico" />
@@ -363,7 +361,7 @@
     <Compile Include="Views\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -371,8 +369,6 @@
     <Compile Include="UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
-=======
->>>>>>> 556eebeeb4c496c578f525e43c7ffc1d4d99705b
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
