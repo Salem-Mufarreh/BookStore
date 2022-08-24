@@ -10,19 +10,11 @@ namespace BookStore
         ApplicationDBContext db = new ApplicationDBContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SqlDataSource1.DeleteCommand = "DELETE from Books where Id=@Id";
+            SqlDataSource1.UpdateCommand = "UPDATE Books SET Title=@Title,Author = @Author,Description= @Description,Quantity = @Quantity,Status = @Status, Price = @Price where Id = @Id";
+            
         }
 
-        protected void Delete_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            string id = btn.ClientID.Split('_')[3].Substring(3);
-            int Id = int.Parse( BookGrid.Rows[int.Parse(id)-2].Cells[0].Text);
-            Book book = new Book();
-            book = db.Books.Find(Id);
-            db.Books.Remove(book);
-            db.SaveChanges();
-            Response.Redirect(nameof(ListBooks));
-            }
+        
     }
 }
