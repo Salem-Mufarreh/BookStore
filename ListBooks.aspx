@@ -25,8 +25,41 @@
                     <div style="display:flex; flex-direction:row; ali">
                     <asp:Button runat="server" ID="Delete" CssClass="btn btn-danger" Text="Delete" OnClick="Delete_Click" />
                         &nbsp
-                    <asp:Button runat="server" ID="Edit" CssClass="btn btn-warning" Text="Edit" />
+                    <asp:Button runat="server" ID="Edit" CssClass="btn btn-warning" data-bs-target="#exampleModal" Text="Edit" OnClientClick="return false; Open();" />
+    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block;" aria-modal="true" role="dialog">
+
+                        <script>
+                            function Open() {
+                                document.getElementById("exampleModal").classList.add("show");
+                                document.getElementById("exampleModal").style.display = "block";
+                                document.getElementById("exampleModal").aria - modal="true";
+                            }
+                        </script>
                         </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -40,9 +73,11 @@
         <SortedAscendingHeaderStyle BackColor="#506C8C" />
         <SortedDescendingCellStyle BackColor="#FFFDF8" />
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationDBContext %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>
-<!DOCTYPE html>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
+
     
 
 </asp:Content>

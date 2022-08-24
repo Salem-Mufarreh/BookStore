@@ -15,13 +15,14 @@ namespace BookStore
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            //Button btn = (Button)sender;
-            //string s = btn.ID;
-            //string id = btn.ClientID.Split('_')[3].Substring(3);
-            //int Id = int.Parse( BookGrid.Rows[int.Parse(id)].Cells[0].Text);
-            //Book book = new Book();
-            //book = db.Books.Find(Id.ToString());
-            //db.Books.Remove(book);
+            Button btn = (Button)sender;
+            string id = btn.ClientID.Split('_')[3].Substring(3);
+            int Id = int.Parse( BookGrid.Rows[int.Parse(id)-2].Cells[0].Text);
+            Book book = new Book();
+            book = db.Books.Find(Id);
+            db.Books.Remove(book);
+            db.SaveChanges();
+            Response.Redirect(nameof(ListBooks));
             }
     }
 }

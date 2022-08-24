@@ -53,11 +53,9 @@ namespace BookStore.Views
             
             //string status = (from s in dBContext.Users where s.Email == TextBox1.Text
             //             select s.Active).First().ToString();
-         
 
             if (q.Any())
             {
-<<<<<<< HEAD
                 if(ts[0].Active == SD.UnLocked)
                 {
                     LoggedInUser user = new LoggedInUser();
@@ -65,7 +63,7 @@ namespace BookStore.Views
                     user.Id = ts[0].Id;
                     user.UserName = ts[0].Name;
                     user.CartId = ts[0].Id.ToString();
-                    user.Role = SD.Customer;
+                    user.Role = ts[0].Role;
                     user.Email = ts[0].Email;
                     Session.Add("LoggedInUser", user);
                     Response.Redirect("~/Home");
@@ -79,10 +77,7 @@ namespace BookStore.Views
                    
                 }
                     
-=======
 
-                return true;
->>>>>>> 556eebeeb4c496c578f525e43c7ffc1d4d99705b
             }
             else
             {

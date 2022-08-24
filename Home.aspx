@@ -5,9 +5,7 @@
     <!DOCTYPE html>
 
 
-    <asp:Button Text="text" runat="server" OnClick="Unnamed_Click"/>
-    <asp:Label ID="label12" runat="server" />
-    
+<br />    
     <div class="gridHome">
         <%if(Session["Message"] !=null)
             {
@@ -20,6 +18,7 @@
                 <ItemTemplate>
                         <div class="card cardGridHome ">
                             <input type="hidden" value=<%#DataBinder.Eval(Container,"DataItem.Id") %> />
+                            &nbsp
                             <img class="card-img-top" src="Uploaded/<%#DataBinder.Eval(Container,"DataItem.Title") %>-<%#DataBinder.Eval(Container,"DataItem.Author") %>.jpeg" style="width:20rem;height:17rem;align-self:center" alt="Card image cap" onerror="imgError(this);" />
                             <div class="card-body">
                                 <h5 class="card-title"> <%#DataBinder.Eval(Container,"DataItem.Title") %> </h5>
