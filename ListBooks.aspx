@@ -1,6 +1,20 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ListBooks.aspx.cs" Inherits="BookStore.ListBooks" %>
 
 <asp:Content runat="server" ClientIDMode="AutoID" ContentPlaceHolderID="MainContent">
+    <% BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+        if(user == null || user.Role != BookStore.Models.SD.Admin )
+        {
+            Response.Redirect(nameof(BookStore.Home));
+        }
+        if(Session["Message"] != null)
+            {
+                BookStore.Models.ToastrNotifications notifications = (BookStore.Models.ToastrNotifications)Session["Message"];
+                Response.Write("<script>toastr."+notifications.Type+"('" + notifications.Message + "');</script>");
+                notifications = null;
+                Session["Message"] =notifications ;
+            }
+        %>
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
