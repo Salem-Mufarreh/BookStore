@@ -15,15 +15,6 @@ namespace BookStore
     {
 
         /// <summary>
-        /// label12 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label12;
-
-        /// <summary>
         /// repeater1 control.
         /// </summary>
         /// <remarks>

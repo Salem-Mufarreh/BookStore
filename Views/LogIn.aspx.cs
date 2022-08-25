@@ -53,7 +53,6 @@ namespace BookStore.Views
             
             //string status = (from s in dBContext.Users where s.Email == TextBox1.Text
             //             select s.Active).First().ToString();
-         
 
             if (q.Any())
             {
@@ -64,7 +63,7 @@ namespace BookStore.Views
                     user.Id = ts[0].Id;
                     user.UserName = ts[0].Name;
                     user.CartId = ts[0].Id.ToString();
-                    user.Role = SD.Customer;
+                    user.Role = ts[0].Role;
                     user.Email = ts[0].Email;
                     Session.Add("LoggedInUser", user);
                     Response.Redirect("~/Home");
