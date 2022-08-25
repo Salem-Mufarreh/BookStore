@@ -1,14 +1,24 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ListBooks.aspx.cs" Inherits="BookStore.ListBooks" %>
+
 <asp:Content runat="server" ClientIDMode="AutoID" ContentPlaceHolderID="MainContent">
+    <% BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
+        if(user == null || user.Role != BookStore.Models.SD.Admin )
+        {
+            Response.Redirect(nameof(BookStore.Home));
+        }
+        if(Session["Message"] != null)
+            {
+                BookStore.Models.ToastrNotifications notifications = (BookStore.Models.ToastrNotifications)Session["Message"];
+                Response.Write("<script>toastr."+notifications.Type+"('" + notifications.Message + "');</script>");
+                notifications = null;
+                Session["Message"] =notifications ;
+            }
+        %>
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-    <script>
-        $(function () {
-            $("#ctl00_MainContent_BookGrid").prepend($("<thead></thead><br/>").append($(this).find("tr:first"))).DataTable();
-        });
-        
-    </script>
+
     <br />
     <asp:GridView ID="BookGrid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -20,48 +30,10 @@
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
-            <asp:TemplateField>
-                <ItemTemplate>
-                    <div style="display:flex; flex-direction:row; ali">
-                    <asp:Button runat="server" ID="Delete" CssClass="btn btn-danger" Text="Delete" OnClick="Delete_Click" />
-                        &nbsp
-                    <asp:Button runat="server" ID="Edit" CssClass="btn btn-warning" data-bs-target="#exampleModal" Text="Edit" OnClientClick="return false; Open();" />
-    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block;" aria-modal="true" role="dialog">
 
-                        <script>
-                            function Open() {
-                                document.getElementById("exampleModal").classList.add("show");
-                                document.getElementById("exampleModal").style.display = "block";
-                                document.getElementById("exampleModal").aria - modal="true";
-                            }
-                        </script>
-                        </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" ControlStyle-CssClass="btn btn-warning" ControlStyle-ForeColor="White" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" />
+
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -73,11 +45,10 @@
         <SortedAscendingHeaderStyle BackColor="#506C8C" />
         <SortedDescendingCellStyle BackColor="#FFFDF8" />
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationDBContext %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
 
-    
+
 
 </asp:Content>
