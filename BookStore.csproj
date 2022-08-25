@@ -154,8 +154,8 @@
     <Content Include="Content\loginCss.css" />
     <Content Include="Content\LoginStyleSheet.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\UserProfile.css" />
     <Content Include="Content\toastr.css" />
-
     <Content Include="Content\toastr.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Details.aspx" />
@@ -361,7 +361,6 @@
     <Compile Include="Views\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

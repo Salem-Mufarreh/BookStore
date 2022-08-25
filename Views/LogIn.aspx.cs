@@ -21,20 +21,7 @@ namespace BookStore.Views
 
         }
 
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    if (IsvalidUser(TextBox1.Text, TextBox2.Text))
-        //    {
-        //        Response.Redirect("Home");
-        //    }
-        //    else
-        //    {
-        //        ToastrNotifications notifications = new ToastrNotifications();
-        //        notifications.Message = " Your Account is Currnetly Locked, Please Contact the support System for more Details ";
-        //        notifications.Type = "error";
-        //        Session.Add("Message", notifications);
-        //    }
-        //}
+
 
        protected void Button1_Click(object sender, EventArgs e)
 
@@ -47,13 +34,9 @@ namespace BookStore.Views
                     && p.password == TextBox2.Text
                     select p;
 
-            // IList<User> ts = q.ToList<User>();
-
            IList<User> ts = q.Cast<User>().ToList();
             
-            //string status = (from s in dBContext.Users where s.Email == TextBox1.Text
-            //             select s.Active).First().ToString();
-
+          
             if (q.Any())
             {
                 if(ts[0].Active == SD.UnLocked)
@@ -65,6 +48,9 @@ namespace BookStore.Views
                     user.CartId = ts[0].Id.ToString();
                     user.Role = ts[0].Role;
                     user.Email = ts[0].Email;
+                    user.Address = ts[0].Address;
+                    user.phoneNumber = ts[0].PhoneNumber;
+
                     Session.Add("LoggedInUser", user);
                     Response.Redirect("~/Home");
                 }
