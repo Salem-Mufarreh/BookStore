@@ -69,8 +69,8 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Books</a>
                                     <ul class="dropdown-menu dropdown-menu-dark" style="position: absolute">
-                                        <li><a class="dropdown-item" href="ListBooks">Manage Books</a></li>
-                                        <li><a class="dropdown-item" href="AddBooks">Insert Book</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="ListBooks">Manage Books</a></li>
+                                        <li class ="nav-item"><a class="dropdown-item" href="AddBooks">Insert Book</a></li>
                                     </ul>
                                 </li>
 
@@ -78,20 +78,20 @@
                 <%}
             } %>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" style="flex-direction:row">
         <% if(Session["LoggedInUser"] != null)
             {
                 BookStore.Models.LoggedInUser user = (BookStore.Models.LoggedInUser)Session["LoggedInUser"];
                 %>
-                <li><a href="#" ><span class="glyphicon glyphicon-user" onclick=""></span><% Response.Write(user.UserName); %></a></li>
-                <li> <asp:LinkButton Text="Logout" runat="server" ID="logoutbtn" OnClick="logoutbtn_Click" /></li>
+                <li class="nav-item"><a href="#"class="nav-link" ><span class="glyphicon glyphicon-user" onclick=""></span><% Response.Write(user.UserName); %></a></li>
+                <li class="nav-item"> <asp:LinkButton Text="Logout" runat="server" ID="logoutbtn" OnClick="logoutbtn_Click" CssClass="nav-link"/></li>
         <%      
             }
             else
             {
                 %>
-              <li><a href="Signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="Views/LogIn"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li class="nav-item"><a href="Signup" class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li class="nav-item"><a href="Views/LogIn"class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <%
             }
            %>
