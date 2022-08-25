@@ -4,13 +4,13 @@
     <script src="https://kit.fontawesome.com/06bbb10d94.js" crossorigin="anonymous"></script>
     <link href="Content/CartStyleSheet.css" rel="stylesheet" />
     <div class="header">
-        <h2><i class="fa-solid fa-bag-shopping"></i>My Cart</h2>
+        <h2><i class="fa-solid fa-bag-shopping"></i> My Cart</h2>
     </div>
     <div class="row">
         <div class="col-lg-8">
             <hr />
             <div class="cardItems">
-                <asp:Repeater runat="server" ID="Repeater1">
+                <asp:Repeater runat="server" ID="Repeater1" DataSourceID="SqlDataSource1">
                     <ItemTemplate>
                         <div class="row">
                             <div class="col">
@@ -32,6 +32,13 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
+
+
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationDBContext %>" SelectCommand="SELECT * FROM [Cart_Item] WHERE ([Sessionid] = @Sessionid)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="Sessionid" SessionField="LoggedInUser" Type="Int32" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
 
 
             </div>

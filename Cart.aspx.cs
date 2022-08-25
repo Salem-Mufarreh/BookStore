@@ -14,9 +14,7 @@ namespace BookStore
         protected  ApplicationDBContext db = new ApplicationDBContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Book> books = db.Books.ToList();
-            Repeater1.DataSource = books;
-            Repeater1.DataBind();
+            
 
         }
     }
