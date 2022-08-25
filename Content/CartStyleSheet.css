@@ -1,0 +1,25 @@
+﻿.header{
+    display:flex;
+    justify-content:center
+}
+.cardItems{
+    padding:  0 2rem;
+}
+.cardItem{
+    display:flex;
+    flex-direction:column;
+}
+.promo{
+    height:2.38rem
+}
+.btnPromo{
+    border-radius:0;
+}
+.ChecoutItems{
+    display:flex;
+    justify-content:space-between;
+    padding-bottom:1rem;
+}
+.btnCheckout{
+    width:100%;
+}

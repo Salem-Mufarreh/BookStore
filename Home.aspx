@@ -14,7 +14,9 @@
                 notifications = null;
                 Session["Message"] =notifications ;
             } %>
-            <asp:Repeater runat="server" ID="repeater1">
+        
+            <asp:Repeater runat="server" ID="repeater1" DataSourceID="SqlDataSource1">
+                
                 <ItemTemplate>
                         <div class="card cardGridHome ">
                             <input type="hidden" value=<%#DataBinder.Eval(Container,"DataItem.Id") %> />
@@ -43,6 +45,7 @@
                 </ItemTemplate>
                               
             </asp:Repeater>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationDBContext %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>
         <script>
             var list = document.getElementsByClassName("test");
             for (let item of list) {

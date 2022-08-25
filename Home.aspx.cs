@@ -13,12 +13,9 @@ namespace BookStore
         protected readonly ApplicationDBContext _db;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ApplicationDBContext db = new ApplicationDBContext();
-            List<Book> books = db.Books.ToList();
 
 
-            repeater1.DataSource = books.Take(30);
-            repeater1.DataBind();
+
 
 
         }
